@@ -27,8 +27,8 @@ class MoneyTransferTest {
         val replenishmentPageOfFirstCard = dashboardPage.replenishFirstCard();
         val secondCardInfo = DataHelper.getSecondCardInfo();
         replenishmentPageOfFirstCard.transferAmountFromSecondCard(transferAmount, secondCardInfo);
-        val finalCardFirstBalance = dashboardPage.getBalanceFirstCard();
-        assertEquals(initialBalanceOfFirstCard + transferAmount, finalCardFirstBalance);
+        val finalBalanceOfFirstCard = dashboardPage.getBalanceFirstCard();
+        assertEquals(initialBalanceOfFirstCard + transferAmount, finalBalanceOfFirstCard);
 
         dashboardPage.checkReturnToDashboardPage();
 
@@ -37,8 +37,8 @@ class MoneyTransferTest {
         replenishmentPageOfSecondCard.cleanFields();
         val firstCardInfo = DataHelper.getFirstCardInfo();
         replenishmentPageOfSecondCard.transferAmountFromFirstCard(transferAmount, firstCardInfo);
-        val finalSecondCardBalance = dashboardPage.getBalanceSecondCard();
-        assertEquals(initialBalanceOfSecondCard + transferAmount, finalSecondCardBalance);
+        val finalBalanceOfSecondCard = dashboardPage.getBalanceSecondCard();
+        assertEquals(initialBalanceOfSecondCard + transferAmount, finalBalanceOfSecondCard);
 
         dashboardPage.checkReturnToDashboardPage();
     }
